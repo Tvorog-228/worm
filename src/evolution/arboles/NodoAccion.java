@@ -41,7 +41,6 @@ public class NodoAccion implements NodoAST {
     public String toString(int nivel) {
         String tab = "\t".repeat(nivel);
 
-        // Añadimos un toque visual para Swing
         String icono = "";
         switch (this.tipoAccion) {
             case NORTE:

@@ -110,7 +110,6 @@ public class Contexto {
         estadisticas.ticksSobrevividos++;
     }
 
-    // Este método AHORA recibe la distancia generada por el genoma
     public double leerSensor(
         evolution.arboles.NodoCondicional.AtributoSensor sensor,
         int distancia

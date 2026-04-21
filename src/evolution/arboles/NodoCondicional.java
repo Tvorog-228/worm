@@ -1,7 +1,7 @@
 package evolution.arboles;
 
 import evolution.entorno.Contexto;
-import evolution.entorno.Entorno; // Importamos Entorno para los límites
+import evolution.entorno.Entorno;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -149,7 +149,6 @@ public class NodoCondicional implements NodoAST {
                 break;
         }
 
-        // Modificamos cómo se imprime para que muestre el alcance visual (ej: COMIDA_N [Dist: 3])
         String textoSensor = this.sensor.name();
         if (!textoSensor.equals("ENERGIA") && !textoSensor.equals("SUENO")) {
             textoSensor += " [Dist: " + this.distancia + "]";

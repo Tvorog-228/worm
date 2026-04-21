@@ -5,9 +5,8 @@ import evolution.arboles.NodoAST;
 
 public class SubtreeCrossover implements CrossoverMethod {
 
-    private int maxDepth; // Usamos el límite real de tu interfaz, no un 12 fijo
+    private int maxDepth;
 
-    // Constructor para recibir el límite desde Algoritmo.java
     public SubtreeCrossover(int maxDepth) {
         this.maxDepth = maxDepth;
     }
@@ -26,7 +25,6 @@ public class SubtreeCrossover implements CrossoverMethod {
         hijo1.reemplazarNodo(punto1, copiaPunto2);
         hijo2.reemplazarNodo(punto2, copiaPunto1);
 
-        // --- ¡EL POLICÍA CORREGIDO! ---
         if (
             hijo1.getRaiz() == null ||
             hijo1.getNumNodos() > 200 ||

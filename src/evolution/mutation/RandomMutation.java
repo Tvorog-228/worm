@@ -5,19 +5,23 @@ import java.util.Random;
 
 public class RandomMutation implements MutationMethod {
 
-    private int maxDepth;
+    private Random random = new Random();
+    private MutationMethod[] metodos;
 
     public RandomMutation(int maxDepth) {
-        this.maxDepth = maxDepth;
+        // Inicializamos nuestro arsenal de mutaciones
+        this.metodos = new MutationMethod[] {
+            new SubtreeMutation(maxDepth), // El único que necesita límite porque hace crecer ramas
+            new HoistMutation(),
+            new FunctionalMutation(),
+            new TerminalMutation(),
+        };
     }
 
     @Override
     public void mutate(Individual ind) {
-        // Elige una mutación al azar de las anteriores
-        Random r = new Random();
-        int opc = r.nextInt(3);
-        if (opc == 0) new TerminalMutation().mutate(ind);
-        else if (opc == 1) new HoistMutation().mutate(ind);
-        else new SubtreeMutation(maxDepth).mutate(ind);
+        // Elegimos un método al azar y lo ejecutamos
+        MutationMethod metodoElegido = metodos[random.nextInt(metodos.length)];
+        metodoElegido.mutate(ind);
     }
 }

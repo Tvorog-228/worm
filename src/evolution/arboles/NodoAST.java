@@ -13,14 +13,12 @@ public interface NodoAST {
     List<NodoAST> getHijos();
     void setHijo(int index, NodoAST nodo);
 
-    // Los métodos con cuerpo en una interfaz SIEMPRE deben ser 'default'
     default List<NodoAST> getTerminalNodes() {
         List<NodoAST> terminals = new ArrayList<>();
         collectTerminals(this, terminals);
         return terminals;
     }
 
-    // --- CORRECCIÓN AQUÍ: Añadimos 'default' ---
     default int getProfundidad() {
         List<NodoAST> hijos = getHijos();
         if (hijos == null || hijos.isEmpty()) {
@@ -34,7 +32,6 @@ public interface NodoAST {
         return 1 + maxHijo; // Sumamos 1 por el nivel actual
     }
 
-    // Método privado auxiliar (permitido en interfaces desde Java 9)
     private void collectTerminals(NodoAST node, List<NodoAST> terminals) {
         List<NodoAST> hijos = node.getHijos();
 

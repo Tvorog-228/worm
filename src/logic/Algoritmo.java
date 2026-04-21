@@ -71,7 +71,7 @@ public class Algoritmo {
         this.listener = null;
 
         this.random = new Random();
-        this.fitnessCalculator = new FitnessCalculator(seed, bloatingCoef); // Actualizado constructor
+        this.fitnessCalculator = new FitnessCalculator(seed, bloatingCoef);
         this.poblacion = null;
 
         // Inicialización de operadores mediante factorías
@@ -194,7 +194,6 @@ public class Algoritmo {
     }
 
     private List<Point> obtenerRutaVisualizacion(Individual ind) {
-        // Antes: new Contexto() -> AHORA: usa la semilla
         Contexto ctx = new Contexto(this.seed);
         int ticks = 0;
         while (ctx.getAgente().vivo && ticks < 500) {
@@ -206,7 +205,6 @@ public class Algoritmo {
     }
 
     private void prepararSimulacionFinal() {
-        // Antes: new Contexto() -> AHORA: usa la semilla
         this.contextoMejorFinal = new Contexto(this.seed);
         Individual mejor = poblacion.getMejorGlobal();
         int ticks = 0;
